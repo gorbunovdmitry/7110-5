@@ -278,16 +278,15 @@ function toggleDetails() {
 
 // Validate form
 function validateForm() {
-    const agreementCheckbox = document.getElementById('agreementCheckbox');
-    const emailInput = document.getElementById('emailInput');
+    const personalDataCheckbox = document.getElementById('personalDataCheckbox');
+    const creditAssignmentCheckbox = document.getElementById('creditAssignmentCheckbox');
     const submitButton = document.getElementById('submitButton');
     
-    if (agreementCheckbox && emailInput && submitButton) {
-        const email = emailInput.value.trim();
-        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        const agreementChecked = agreementCheckbox.checked;
+    if (personalDataCheckbox && creditAssignmentCheckbox && submitButton) {
+        const personalDataChecked = personalDataCheckbox.checked;
+        const creditAssignmentChecked = creditAssignmentCheckbox.checked;
         
-        if (emailValid && agreementChecked) {
+        if (personalDataChecked && creditAssignmentChecked) {
             submitButton.disabled = false;
         } else {
             submitButton.disabled = true;
