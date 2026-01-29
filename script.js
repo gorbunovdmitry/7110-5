@@ -296,25 +296,14 @@ function validateForm() {
 
 // Submit form
 function submitForm() {
-    const agreementCheckbox = document.getElementById('agreementCheckbox');
     const emailInput = document.getElementById('emailInput');
-    
-    if (!agreementCheckbox || !agreementCheckbox.checked) {
-        alert('Пожалуйста, подтвердите согласие с условиями');
-        return;
-    }
-    
-    const email = emailInput.value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Пожалуйста, введите корректный email');
-        return;
-    }
+    const email = emailInput ? emailInput.value.trim() : '';
     
     // Track form submission
     if (typeof gtag !== 'undefined') {
         gtag('event', '3999_form_submit_var1', {
             variant_name: 'ghk_3999_1',
-            email: email
+            email: email || ''
         });
     }
     if (typeof ym !== 'undefined') {
